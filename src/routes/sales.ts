@@ -1,4 +1,5 @@
 import { Router } from 'express'
+import { listSales } from '../controllers/salesController'
 
 const router = Router()
 

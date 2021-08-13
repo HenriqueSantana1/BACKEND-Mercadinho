@@ -1,7 +1,7 @@
 import express from 'express'
 const app = express()
 
-
+app.use(express.json())
 app.use('/products', require('./routes/products'))
 app.use('/sales', require('./routes/sales'))
 
