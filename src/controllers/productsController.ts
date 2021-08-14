@@ -34,7 +34,7 @@ const updateProduct = async (req: Request, res: Response) => {
     try {
         const product = await prisma.product.update({
             where: {
-                id: parseInt(req.params.id),
+                id: Number(req.params.id),
             },
             data: {
                 title,
