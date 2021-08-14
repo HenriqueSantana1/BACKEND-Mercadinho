@@ -1,22 +1,12 @@
 import { Router } from 'express'
-import { listSales } from '../controllers/salesController'
+import { listSales, addSale, deleteSale } from '../controllers/salesController'
 
 const router = Router()
 
-router.get('/', (req, res) => {
-    return res.send('List Sales')
-})
+router.get('/', listSales)
 
-router.post('/add', (req, res) => {
-    return res.send('Add sale')
-})
+router.post('/add', addSale)
 
-router.put('/:id', (req, res) => {
-    return res.send('Edit sale '+req.params.id)
-})
-
-router.delete('/:id', (req, res) => {
-    return res.send('Delete sale '+req.params.id)
-})
+router.delete('/:id', deleteSale)
 
 module.exports = router
