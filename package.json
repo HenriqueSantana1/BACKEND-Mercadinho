@@ -17,6 +17,7 @@
   "dependencies": {
     "@prisma/client": "^2.29.1",
     "express": "^4.17.1",
-    "prisma": "2.29.0"
+    "prisma": "2.29.0",
+    "ts-node": "^10.2.0"
   }
 }
