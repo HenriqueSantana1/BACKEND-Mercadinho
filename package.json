@@ -6,7 +6,8 @@
   "author": "Henrique <henrique.santana@ecomp.ufsm.br>",
   "license": "MIT",
   "scripts": {
-    "start": "ts-node-dev src/server.ts",
+    "build": "tsc",
+    "start": "node dist/server.js",
     "dev": "ts-node-dev src/server.ts"
   },
   "devDependencies": {
@@ -17,7 +18,6 @@
   "dependencies": {
     "@prisma/client": "^2.29.1",
     "express": "^4.17.1",
-    "prisma": "2.29.0",
-    "ts-node": "^10.2.0"
+    "prisma": "2.29.0"
   }
 }
