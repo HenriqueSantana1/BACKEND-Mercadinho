@@ -8,7 +8,7 @@ const listProducts = async (req: Request, res: Response) => {
         return res.json(products)
     }
     catch (err) {
-        return res.sendStatus(400).json({ error: 'Erro ao listar produtos' })
+        return res.status(400).send({ error: 'Erro ao listar produtos' })
     }
 }
 
@@ -25,14 +25,14 @@ const addProduct = async (req: Request, res: Response) => {
         })
         return res.json(product)
     } catch (err) {
-        return res.json({error: 'Erro ao cadastrar produto!'})
+        return res.status(400).send({error: 'Erro ao cadastrar produto!'})
     }
 }
 
 const updateProduct = async (req: Request, res: Response) => {
     const { title, description, price, qtt } = req.body 
     try {
-        const product = await prisma.product.update({
+        const updatedProduct = await prisma.product.update({
             where: {
                 id: Number(req.params.id),
             },
@@ -43,25 +43,25 @@ const updateProduct = async (req: Request, res: Response) => {
                 qtt
             }
         })
-        return res.json(product)
+        return res.json(updatedProduct)
     }
     catch (err) {
-        return res.sendStatus(400).json({ error: 'Erro ao atualizar produto' })
+        return res.status(400).send({ error: 'Erro ao atualizar produto' })
     }
 }
 
 const deleteProduct = async (req: Request, res: Response) => {
     const { id } = req.params
     try {
-        const product = await prisma.product.delete({
+        const deletedProduct = await prisma.product.delete({
             where: {
                 id: Number(id)
             }
         })
-        return res.json(product)
+        return res.json(deletedProduct)
     }
     catch (err) {
-        return res.sendStatus(400).json({error: 'Erro ao deletar produto'})
+        return res.status(400).send({error: 'Erro ao deletar produto'})
     }
 }
 export { listProducts, addProduct, updateProduct, deleteProduct }
